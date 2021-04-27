@@ -1,7 +1,7 @@
-lunar-lander
+mountain-car
 
 ## What is this repo
-It is an attempt to solve the Lunar Lander using a policy gradient implementation. I'm not optimizing for code legibility or maintainability here.
+It is an attempt to solve the Mountain Car using a policy gradient implementation. I'm not optimizing for code legibility or maintainability here.
 
 ##Disclaimer
 This repo uses code from the following places:
