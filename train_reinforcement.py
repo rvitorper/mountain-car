@@ -136,8 +136,11 @@ if __name__ == "__main__":
             action = get_action(significant_state)
             observation, reward, done, info = env.step(action)
             actions.append(action)
-            reward -= math.fabs(goal_position - observation[0]) / 100.0
-            reward += 10.0 * energy(observation)
+            reward = 0 if reward <= 0 else reward
+            reward -= 0.1 * (observation[0] - goal_position) ** 2
+            reward += 0.1 * (last_state[0] - goal_position) ** 2
+            reward -= 1000.0 * (energy_baseline - energy(observation))
+            reward += 1000.0 * (energy_baseline - energy(last_state))
             rewards.append(reward)
             if done:
                 episode_reward, episode_len = compute_returns(rewards), len(rewards)
